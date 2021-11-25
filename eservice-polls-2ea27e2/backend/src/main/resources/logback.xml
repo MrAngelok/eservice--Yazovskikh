@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${edu.omsu.eservice.vedom.log.file:-target/vedom.log}</file>
+        <append>true</append>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %-37logger{36}%msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="${edu.omsu.eservice.vedom.log.spring:-INFO}"/>
+    <logger name="edu.omsu.eservice.vedom" level="${edu.omsu.eservice.vedom.log.own:-INFO}"/>
+    <root level="${edu.omsu.eservice.vedom.log.root:-INFO}">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
